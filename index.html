@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>اختبار الجدارات السلوكية – معلم مساعد</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f5;--card:#fff;--tx:#1b2b24;--mu:#5d6e66;--pr:#0f7a55;--bd:#d8e2dd;--bad:#c0392b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#10181a;--card:#18242a;--tx:#e8f0ec;--mu:#9bb0a6;--pr:#35c28f;--bd:#2a3a40;--bad:#ff7a6b}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#10181a;--card:#18242a;--tx:#e8f0ec;--mu:#9bb0a6;--pr:#35c28f;--bd:#2a3a40;--bad:#ff7a6b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Cairo,Tahoma,Arial,sans-serif;line-height:1.7;padding-bottom:90px}
+.w{max-width:680px;margin:0 auto;padding:14px}
+header{text-align:center;padding:10px 0}
+h1{font-size:21px;margin:4px 0;color:var(--pr)}
+.sub{color:var(--mu);font-size:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin:12px 0}
+.bar{height:8px;background:var(--bd);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--pr);width:0;transition:width .4s}
+.q{font-weight:700;margin-bottom:8px}
+.q.miss{color:var(--bad)}
+label{display:block;padding:8px 10px;border:1px solid var(--bd);border-radius:10px;margin:6px 0;cursor:pointer}
+label:has(input:checked){border-color:var(--pr);background:color-mix(in srgb,var(--pr) 14%,transparent)}
+input{margin-inline-end:8px;accent-color:var(--pr)}
+button{font-family:inherit;font-size:16px;border:0;border-radius:12px;padding:12px 18px;background:var(--pr);color:#fff;cursor:pointer;width:100%}
+button.g{background:transparent;color:var(--pr);border:1px solid var(--pr);margin-top:8px}
+.big{font-size:56px;font-weight:700;color:var(--pr);text-align:center;line-height:1.2}
+.row{display:flex;justify-content:space-between;font-size:14px;margin-top:10px}
+.wa{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:14px;background:#25d366;color:#fff;text-decoration:none;padding:11px 16px;border-radius:30px;font-weight:700;box-shadow:0 3px 10px rgba(0,0,0,.3);z-index:5}
+small{color:var(--mu)}
+</style></head><body>
+<div class="w"><header><h1>اختبار الجدارات السلوكية – معلم مساعد</h1>
+<div class="sub">محاكي اختبار الجهاز المركزي للتنظيم والإدارة</div>
+<div class="sub">مقدم من صفحة ببساطة | إعداد مستر محمد سيد</div></header>
+<div id="app"></div></div>
+<a class="wa" href="https://wa.me/201063657404" target="_blank" rel="noopener">💬 تواصل واتساب</a>
+<script>
+const A1=["أوافق بشدة","أوافق","محايد","لا أوافق","لا أوافق بشدة"],
+A2=["دائمًا","غالبًا","أحيانًا","نادرًا","أبدًا"],
+A3=["ينطبق عليّ بشدة","ينطبق عليّ","محايد","لا ينطبق عليّ","لا ينطبق عليّ بشدة"],
+A4=["أعاني بشدة","أعاني كثيرًا","أعاني أحيانًا","أعاني نادرًا","لا أعاني"],
+A5=["بدرجة كبيرة جدًا","بدرجة كبيرة","بدرجة متوسطة","بدرجة قليلة","لا أبدًا"];
+const S=[
+{t:"القسم الأول: الموافقة",h:"حدد مدى موافقتك على كل عبارة",o:A1,q:[
+["أحب العمل الجماعي مع زملائي.",0],["أحرص على الاستماع لآراء الآخرين حتى لو اختلفت معها.",0],["أتقبل النقد من الآخرين بصدر رحب.",0],["أتنازل عن مبادئي مقابل ترقية من مديري.",1],["أستطيع ضبط غضبي أثناء العمل.",0],["أفضل إنجاز المهام بمفردي دون مشاركة أحد.",1],["أحترم زملائي مهما اختلفنا.",0],["أتحمل ضغط العمل وأنفذ مهامي.",0],["يمكنني اتخاذ حلول غير قانونية إذا كانت نتيجتها الترقية.",1],["أستطيع تحمل المسؤولية وتوزيع المهام على الآخرين.",0],["أرى أن الفن والشعر إهدار للمال.",1],["أصارح مديري بأسباب تأخر مهامي وأطلب وقتًا إضافيًا.",0],["أتملق المدير للوصول إلى منصب.",1],["أؤمن بأن للحقيقة أوجهًا كثيرة.",0],["أساعد زملائي في إنجاز مهامهم حتى لو لم يطلبوا مني.",0]]},
+{t:"القسم الثاني: التكرار",h:"ما مدى تكرار كل سلوك في حياتك؟",o:A2,q:[
+["أخطط لمهامي اليومية.",0],["أنجز مهامي في الوقت المحدد.",0],["أحافظ على ترتيب أدواتي في العمل والبيت.",0],["أذهب إلى العمل صباحًا بنشاط وحماس.",0],["أشعر بالملل أثناء تأدية عملي.",1],["أنزعج من أقل الأشياء.",1],["ألقي اللوم على من حولي عند عدم إتمام المهام.",1],["أقدم المساعدة لمن يطلبها مني.",0],["أتدخل لإصلاح الخلاف بين زميلين للحفاظ على بيئة العمل.",0],["أضع جدولًا بالأولويات المطلوبة مني.",0],["أوجه انتقادات جارحة للآخرين.",1],["أضع نفسي مكان الآخرين لأشعر بآلامهم.",0],["أبتكر طرقًا جديدة لحل مشكلات العمل.",0],["أبحث عن هدف جديد بعد تحقيق هدفي.",0],["أعمل بإتقان حتى بدون رقابة.",0]]},
+{t:"القسم الثالث: الانطباق",h:"إلى أي مدى تنطبق عليك كل عبارة؟",o:A3,q:[
+["أنا شخص يُعتمد عليه في العمل.",0],["أنا شخص كسول.",1],["أنا شخص صبور.",0],["أنا شخص سريع الغضب.",1],["أنا واثق من نفسي وشخصيتي.",0],["أنا شخص أناني.",1],["أنا شخص متعاون أثناء العمل.",0],["أنا منظم في حياتي.",0],["أنا شخص بارد المشاعر.",1],["أنا شخص شجاع في مواجهة أخطائي.",0],["أنا شخص محبوب في بيئة العمل.",0],["أخاف من اتخاذ القرار في أي أمر.",1],["أستطيع إنجاز أكثر من مهمة بشكل جيد في وقت واحد.",0],["أتأثر بآراء أصدقائي في قراراتي.",1],["أنا راضٍ عن نفسي وشخصيتي.",0]]},
+{t:"القسم الرابع: المعاناة",h:"إلى أي مدى تعاني من كل مما يلي؟",o:A4,q:[
+["من التوتر والقلق قبل اتخاذ القرارات.",1],["من الملل والإرهاق أثناء العمل.",1],["من صعوبة تحمل ضغط العمل.",1],["من الانزعاج عندما يقاطعني أحد أثناء الكلام.",1],["من الشعور بالإحباط عند الفشل.",1],["من صعوبة مواجهة الأزمات أثناء العمل.",1],["من غضب يؤثر على أدائي.",1],["من الحرج عند انتقادي أمام الآخرين.",1],["من الانعزال بعد تلقي النقد.",1],["من صعوبة الاستيقاظ المبكر للعمل.",1],["من تأجيل المهام المطلوبة مني.",1],["من الخوف من الفشل.",1],["من صعوبة التعامل مع مديري.",1],["من الشعور باليأس عند تعثر الأمور.",1],["من صعوبة التركيز على المهام المهمة.",1]]},
+{t:"القسم الخامس: درجة الحدوث",h:"إلى أي درجة تفعل أو يحدث معك ما يلي؟",o:A5,q:[
+["أتحمل أعباء إضافية يطلبها مديري إذا كانت في صالح العمل.",0],["أقبل التفاوض والنقاش مع الآخرين.",0],["أشارك برأيي في إنجاز المهام إذا كان ذلك في صالح العمل.",0],["أوضح للمرؤوسين المهام المطلوبة منهم بشكل محدد.",0],["أفصل بين خصمين بعدل حتى لو كان أحدهما صديقي المقرب.",0],["أتغاضى عن الإهمال إذا صدر من صديقي.",1],["أتبرع أو أساعد في المواقف الإنسانية الطارئة.",0],["أحافظ على الوقت.",0],["أبتعد عن النقاشات الجدلية بيني وبين زملائي.",1],["أكوّن رأيي من وجهة نظر الآخرين دون تفكير.",1],["أخالف مديري حتى لو كان ذلك يضر بالعمل.",1],["أرشد الغرباء والزوار بود وترحاب.",0],["أتعلم من أخطائي وأعدل سلوكي.",0],["أحافظ على أسرار العمل.",0],["أتحمل نتيجة قراراتي دون إلقاء اللوم على غيري.",0]]}
+];
+// أزواج الأسئلة المتكررة بصيغ مختلفة (لقياس التركيز والاتساق)
+const P=[[0,5],[4,33],[3,8],[3,12],[16,55],[31,18],[37,17],[2,53],[7,47],[19,46],[34,56],[22,14],[67,16]];
+const N=75,F=[];S.forEach((s,si)=>s.q.forEach((q,qi)=>F.push({s:si,t:q[0],r:q[1],o:s.o})));
+const a=Array(N).fill(null);let cur=0;
+const $=id=>document.getElementById(id);
+const d=i=>F[i].r?a[i]+1:5-a[i];
+function show(){
+ const s=S[cur],b=cur*15;
+ let h=`<div class="card"><div class="bar"><i id="pb"></i></div><div class="row"><span>${s.t}</span><span>${cur+1} / 5</span></div></div><div class="card"><b>${s.h}</b></div>`;
+ s.q.forEach((q,i)=>{const k=b+i;h+=`<div class="card" id="c${k}"><div class="q" id="q${k}">${i+1}. ${q[0]}</div>`+s.o.map((o,j)=>`<label><input type="radio" name="r${k}" value="${j}" ${a[k]===j?"checked":""} onchange="a[${k}]=${j};prog()">${o}</label>`).join("")+`</div>`});
+ h+=`<div id="msg" class="q miss"></div><button onclick="next()">${cur<4?"القسم التالي":"عرض النتيجة"}</button>`+(cur?`<button class="g" onclick="cur--;show();scrollTo(0,0)">القسم السابق</button>`:"");
+ $("app").innerHTML=h;prog();
+}
+function prog(){const n=a.filter(x=>x!==null).length;if($("pb"))$("pb").style.width=n/N*100+"%"}
+function next(){
+ const b=cur*15;let first=-1;
+ for(let i=b;i<b+15;i++){const m=a[i]===null;$("q"+i).classList.toggle("miss",m);if(m&&first<0)first=i}
+ if(first>=0){$("msg").textContent="من فضلك أجب عن كل الأسئلة قبل المتابعة.";$("c"+first).scrollIntoView({behavior:"smooth",block:"center"});return}
+ if(cur<4){cur++;show();scrollTo(0,0)}else res();
+}
+function pct(x){return Math.round(x)}
+function res(){
+ const sec=S.map((s,si)=>{let t=0;for(let i=si*15;i<si*15+15;i++)t+=(d(i)-1)/4;return t/15*100});
+ const all=sec.reduce((x,y)=>x+y,0)/5;
+ const ok=P.filter(p=>Math.abs(d(p[0])-d(p[1]))<=1).length,cons=ok/P.length*100;
+ const v=all>=85?"سمات شخصية ممتازة ومناسبة جدًا لمهنة معلم مساعد":all>=70?"سمات شخصية جيدة ومناسبة لمهنة معلم مساعد":all>=55?"سمات مقبولة وتحتاج إلى تطوير في بعض الجوانب":"تحتاج إلى العمل على تطوير سماتك الشخصية لتناسب المهنة";
+ const cm=cons>=80?"إجاباتك متسقة، وهذا يدل على تركيزك وصدقك في الإجابة.":cons>=60?"هناك بعض التناقض في إجاباتك، ركّز أكثر وانتبه لتشابه الأسئلة.":"إجاباتك متناقضة في أسئلة متشابهة، وفي الاختبار الحقيقي قد يقلل ذلك من نتيجتك.";
+ const low=F.map((f,i)=>({i,d:d(i)})).filter(x=>x.d<=2).slice(0,6);
+ let h=`<div class="card"><div style="text-align:center">نسبة توافق سماتك مع مهنة معلم مساعد</div><div class="big">${pct(all)}%</div><div style="text-align:center;font-weight:700">${v}</div></div><div class="card"><b>النسبة في كل قسم</b>`;
+ sec.forEach((x,i)=>h+=`<div class="row"><span>${S[i].t.split(": ")[1]}</span><span>${pct(x)}%</span></div><div class="bar"><i style="width:${x}%"></i></div>`);
+ h+=`</div><div class="card"><b>نسبة الاتساق في الإجابات: ${pct(cons)}%</b><div><small>${cm} (قارنّا ${P.length} زوجًا من الأسئلة المتشابهة بصيغ مختلفة)</small></div></div>`;
+ if(low.length)h+=`<div class="card"><b>نقاط تحتاج مراجعة</b>`+low.map(x=>`<div><small>• ${F[x.i].t}</small></div>`).join("")+`</div>`;
+ h+=`<button onclick="a.fill(null);cur=0;show();scrollTo(0,0)">إعادة الاختبار</button><p style="text-align:center"><small>الاختبار تدريبي استرشادي، والنتيجة نسبة تقريبية وليست درجات رسمية.</small></p>`;
+ $("app").innerHTML=h;scrollTo(0,0);
+}
+show();
+</script></body></html>
